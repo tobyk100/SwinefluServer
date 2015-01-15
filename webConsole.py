@@ -10,15 +10,11 @@ def static(path):
 
 @route('/')
 def index():
+    # parse log file and write password to password.csv
     with open(passwords_file, 'rb') as csvfile:
         passwords = csv.DictReader(csvfile, delimiter=',', quotechar='|')
         logs = parselogs.parselogs()
         return template('index', passwords=passwords, logs=logs)
 
-@route('/passwords')
-def passwords():
-    with open(passwords_file, 'rb') as csvfile:
-        passwords = csv.DictReader(csvfile, delimiter=',', quotechar='|')
-        return template('password_template', passwords=passwords)
 
 run(host='localhost', port=8080)

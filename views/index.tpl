@@ -6,6 +6,7 @@
     <h2>Parsed Passwords</h2>
     % include('password_template.tpl', passwords=passwords)
 </div>
+
 <div id="right">
     <h2>Running Logs</h2>
     {{logs}}
