@@ -1,8 +1,12 @@
-from bottle import route, run, template
+from bottle import route, run, template, static_file
 import csv
 import parselogs
 
 passwords_file = "testpasswords.csv"
+
+@route('/static/:path#.+#', name='static')
+def static(path):
+    return static_file(path, root='static')
 
 @route('/')
 def index():
